@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <title>Weather App Wireframe</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="search-form">
+            <div class="form-row align-items-center">
+                <div class="col-10">
+
+                    <input type="city" class="form-control" id="search-city" placeholder="Enter city" autocomplete="off"
+                        autofocus="on">
+                </div>
+
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+
+        </form>
+    </div>
+    <h1>
+        <span id="temperature"> 25º </span> <span class="unit"> ºF / ºC </span>
+    </h1>
+    <h2 id="city">
+        New York, New York
+    </h2>
+    <div class="row">
+        <div class="col-4">
+            <p class="dateTime" id="dateTime">
+                <span id="day"> <br /> </span>
+                <span id="month"> <br /> </span>
+                <span id="time"> <br /> </span>
+            </p>
+        </div>
+        <div class="col-4">
+            <p class="weatherDetails">
+                Feels like: 20º <br />
+                Precipitation: 100% <br />
+                <span id="humidity"> Humidity: 100% </span> <br />
+                <span id="windSpeed"> Wind: 20 mph </span> <br />
+            </p>
+        </div>
+        <div class="col-4">
+            <p class="weatherConditions">
+                <img src="images/snow.png" alt="snow clipart" />
+                <br />
+                <span id="description"> Snowing </span>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="card-group">
+        <div class="card text-center">
+            <img src="images/lightning cloud.jpeg" class="card-img-top" alt="lightning cloud clipart">
+            <div class="card-body">
+                <h5 class="card-title">49º / 35º</h5>
+                <p class="card-text"> MON </p>
+            </div>
+        </div>
+        <div class="card text-center">
+            <img src="images/snow.png" class="card-img-top" alt="snow clipart">
+            <div class="card-body">
+                <h5 class="card-title">39º / 27º</h5>
+                <p class="card-text"> TUES </p>
+            </div>
+        </div>
+        <div class="card text-center">
+            <img src="images/partly cloudy.png" class="card-img-top" alt="partly cloudy clipart">
+            <div class="card-body">
+                <h5 class="card-title">41º / 37º</h5>
+                <p class="card-text"> WED </p>
+            </div>
+        </div>
+        <div class="card text-center">
+            <img src="images/sunny.png" class="card-img-top" alt="sun shining clipart">
+            <div class="card-body">
+                <h5 class="card-title">56º / 52º</h5>
+                <p class="card-text"> THURS </p>
+            </div>
+        </div>
+        <div class="card text-center">
+            <img src="images/sunny.png" class="card-img-top" alt="sun shining clipart">
+            <div class="card-body">
+                <h5 class="card-title">55º / 44º</h5>
+                <p class="card-text"> FRI </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+
+</html>
