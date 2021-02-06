@@ -10,11 +10,12 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 
-    <title>Weather App Wireframe</title>
+    <title>Weather App</title>
 </head>
 
 <body>
     <div class="container">
+        <div class="weather-app">
         <form id="search-form">
             <div class="form-row align-items-center">
                 <div class="col-10">
@@ -38,17 +39,30 @@
     <div class="row">
         <div class="col-4">
             <p class="dateTime" id="dateTime">
-                <span id="day"> <br /> </span>
-                <span id="month"> <br /> </span>
-                <span id="time"> <br /> </span>
+                <ul>
+                <li id="day"> 
+                </li>
+                <li id="month"> 
+                </li>
+                <li id="time"> 
+                </li>
+                </ul>
+                
             </p>
         </div>
         <div class="col-4">
             <p class="weatherDetails">
-                Feels like: 20º <br />
-                Precipitation: 100% <br />
-                <span id="humidity"> Humidity: 100% </span> <br />
-                <span id="windSpeed"> Wind: 20 mph </span> <br />
+                <ul>
+                <li id="precipitation">
+                    Precipitation: 100%
+                </li>
+                <li id="humidity"> 
+                    Humidity: 100%
+                </li>
+                <li id="windSpeed"> 
+                    Wind: 20 mph
+                </li>
+                </ul>
             </p>
         </div>
         <div class="col-4">
@@ -101,6 +115,7 @@
     <p class="codeLink"> 
         <a href="https://github.com/tycamp19/my-project" target="_blank"> Open-source code </a> by Tytiana Campbell
     </p>
+    </div>
     </div>
     <script src="src/index.js"></script>
 </body>
