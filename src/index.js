@@ -49,7 +49,7 @@ function displayWeather(response) {
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
     document.querySelector("#windSpeed").innerHTML = Math.round(response.data.wind.speed);
     document.querySelector("#description").innerHTML = response.data.weather[0].main;
-    document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    document.querySelector("#icon").setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     document.querySelector("#icon").setAttribute("alt", response.data.weather[0].description);
 
     
@@ -81,7 +81,7 @@ function displayForecast(response) {
             
             
                 <p class="card-text"> ${formatHours(forecast.dt * 1000)} </p>
-                <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
+                <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
                 <div class="card-body">
                 <h5 class="card-title">${Math.round(forecast.main.temp_max)} / ${Math.round(forecast.main.temp_min)}º</h5>
                 
@@ -92,16 +92,19 @@ function displayForecast(response) {
     
 }
 
-function search(event) {
-    event.preventDefault();
-    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-    let city = document.querySelector("#search-city").value;
+function search(city) {
+    let apiKey = "16204bc981b1d7e0a8129943fa70ea30";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
-
     apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayForecast);
+    
+}
 
+function handleSubmit(event) {
+    event.preventDefault();
+    let city = document.querySelector("#search-city").value;
+    search(city);
 }
 function displayFahrenheitTemperature(event) {
     event.preventDefault();
@@ -135,3 +138,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
+
+search("New York");
