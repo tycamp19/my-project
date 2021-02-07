@@ -103,8 +103,8 @@ function search(city) {
 
 function handleSubmit(event) {
     event.preventDefault();
-    let city = document.querySelector("#search-city").value;
-    search(city);
+    let citySearchElement = document.querySelector("#search-city");
+    search(citySearchElement.value);
 }
 function displayFahrenheitTemperature(event) {
     event.preventDefault();
@@ -124,7 +124,7 @@ function displayCelsiusTemperature(event) {
 }
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
+searchForm.addEventListener("submit", handleSubmit);
 
 let celsiusTemperature = null;
 

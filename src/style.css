@@ -4,14 +4,14 @@
   width: 100%;
 }
 .weather-app {
-  border: 5px solid #3f51b5;
+  border: 3px solid #607d8b;
   padding: 20px;
 }
 
 h1,
 h2 {
   text-align: center;
-  color: #3197f3;
+  color: #455a64;
 }
 
 h1 {
@@ -31,14 +31,14 @@ ul {
 
 .unit {
   font-size: 13px;
-  color: #000000;
+  color: #607d8b;
 }
 
 .dateTime,
 .weatherConditions,
 .weatherDetails {
   text-align: center;
-  border: 3px solid #3f51b5;
+  border: 3px solid #607d8b;
   border-radius: 50%;
   width: 130px;
   height: 130px;
