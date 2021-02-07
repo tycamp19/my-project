@@ -15,6 +15,7 @@ let months = [
     "November",
     "December"];
 let month = months[date.getMonth()];
+let calendarDate = date.getDate();
 let hours = date.getHours();
 if (hours < 10) {
     hours = `0${hours}`;
@@ -28,21 +29,24 @@ if (minutes < 10) {
 
 let weekday = document.querySelector("#day");
 let currentMonth = document.querySelector("#month");
+let currentCalendarDate = document.querySelector("#calendarDate");
 let currentTime = document.querySelector("#time");
 weekday.innerHTML = `${day}`;
 currentMonth.innerHTML = `${month}`;
+currentCalendarDate.innerHTML = `${calendarDate}`;
 currentTime.innerHTML = `${hours}:${minutes}`;
 
 
-return `${day} ${month} ${hours}:${minutes}`;
+return `${day} ${month} ${calendarDate} ${hours}:${minutes}`;
 
 }
 
 function displayWeather(response) {
     document.querySelector("#city").innerHTML = response.data.name;
     document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
+    document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-    document.querySelector("#windSpeed").innerHTML = Math.round(response.data.wind.spped);
+    document.querySelector("#windSpeed").innerHTML = Math.round(response.data.wind.speed);
     document.querySelector("#description").innerHTML= response.data.weather[0].main;
 }
 
