@@ -42,14 +42,17 @@ return `${day} ${month} ${calendarDate} ${hours}:${minutes}`;
 }
 
 function displayWeather(response) {
+    celsiusTemperature = response.data.main.temp;
     document.querySelector("#city").innerHTML = response.data.name;
-    document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
+    document.querySelector("#temperature").innerHTML = Math.round(celsiusTemperature);
     document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
     document.querySelector("#windSpeed").innerHTML = Math.round(response.data.wind.speed);
     document.querySelector("#description").innerHTML = response.data.weather[0].main;
     document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     document.querySelector("#icon").setAttribute("alt", response.data.weather[0].description);
+
+    
 }
 
 function search(event) {
@@ -60,12 +63,35 @@ function search(event) {
     axios.get(apiUrl).then(displayWeather);
 
 }
+function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    let fahrenheitTemperature = ((celsiusTemperature * 9) / 5 + 32);
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+    event.preventDefault();
+    fahrenheitLink.classList.remove("active");
+    celsiusLink.classList.add("active");
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
+let celsiusTemperature = null;
 
  let dateElement = document.querySelector("#dateTime");
  let currentDateTime = new Date();
  dateElement.innerHTML = formatDate(currentDateTime);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 

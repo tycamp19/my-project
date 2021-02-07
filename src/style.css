@@ -67,3 +67,12 @@ ul {
 .weatherConditions img {
   width: 80px;
 }
+
+.active {
+  color: black;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+}
